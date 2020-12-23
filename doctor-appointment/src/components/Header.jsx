@@ -1,7 +1,6 @@
 import React from 'react'
-
 // External library imports here
-import {NavLink} from 'react-router-dom'
+import {NavLink, Link} from 'react-router-dom'
 
 // Assets Here
 import logo from '../assets/img/logo.png'
@@ -37,7 +36,7 @@ const Header = () => {
                             <NavLink to={"/"}>Home</NavLink>
                         </li>
                         <li>
-                            <NavLink to={"#"}>Patients`</NavLink>
+                            <NavLink to={"#"}>Patients</NavLink>
                         </li>
 
                         <li>
@@ -51,7 +50,7 @@ const Header = () => {
                 <ul className="nav header-navbar-rht">
                     <li className="nav-item contact-item">
                         <div className="header-contact-img">
-                            <i className="far fa-hospital"></i>
+                            <i className="far fa-hospital"/>
                         </div>
                         <div className="header-contact-detail">
                             <p className="contact-header">Contact</p>
@@ -59,7 +58,7 @@ const Header = () => {
                         </div>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link header-login" href="login.html">login / Signup </a>
+                        <Link className="nav-link header-login" to={"#"}>login / Signup </Link>
                     </li>
                 </ul>
             </nav>

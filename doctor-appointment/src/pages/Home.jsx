@@ -3,6 +3,8 @@ import React from "react";
 // Component Imports Here
 import Banner from "../components/Home/Banner";
 import ClinicSpecialities from "../components/Home/ClinicSpecialities";
+import Book from "../components/Home/Book/Book";
+import AvailableFeature from "../components/Home/AvailableFeature";
 
 
 const Home = () => {
@@ -10,6 +12,8 @@ const Home = () => {
         <>
             <Banner />
             <ClinicSpecialities />
+            <Book />
+            <AvailableFeature/>
         </>
     )
 }
