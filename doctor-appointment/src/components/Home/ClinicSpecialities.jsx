@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import Slider from "../Slider/Slider";
+import Slide from "../Slider/Slider";
 
 
 const ClinicSpecialities = () => {
@@ -13,7 +13,7 @@ const ClinicSpecialities = () => {
                 </div>
                 <div className="row justify-content-center">
                     <div className="col-md-9">
-                        <Slider />
+                        <Slide />
                     </div>
                 </div>
             </div>
