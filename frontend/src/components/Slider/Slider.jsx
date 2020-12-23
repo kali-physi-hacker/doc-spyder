@@ -26,6 +26,9 @@ const SliderItem = props => {
 const Slide = () => {
 
     const settings = {
+        autoplay: false,
+        prevArrow: false,
+        nextArrow: false,
         dots: true,
         infinite: true,
         speed: 500,
@@ -41,6 +44,7 @@ const Slide = () => {
             }
         ]
     }
+
     return (
         <Slider className={"specialities-slider slider"} {...settings}>
 

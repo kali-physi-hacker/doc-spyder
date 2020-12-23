@@ -6,7 +6,7 @@ import {Route, Switch} from 'react-router-dom'
 // My Components (Pages) Imports Here
 import Layout from "./components/Layout";
 import Home from './pages/Home'
-import Book from "./components/Home/Book/Book";
+import Book from "./components/Home/Book";
 
 const App = () => {
     return (

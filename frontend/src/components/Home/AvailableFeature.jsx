@@ -24,9 +24,19 @@ const FeatureSlider = () => {
     const settings = {
         dots: true,
         infinite: true,
+        centerMode: true,
+        slidesToShow: 3,
         speed: 500,
-        slidesToShow: 5,
-        slidesToScroll: 1
+        variableWidth: true,
+        arrows: false,
+        autoplay: false,
+        responsive: [{
+            breakpoint: 992,
+            settings: {
+                slidesToShow: 1
+            }
+
+        }]
     }
     return (
         <Slider {...settings} className={"feature-slider slider"}>
