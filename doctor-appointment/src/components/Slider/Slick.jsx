@@ -30,10 +30,10 @@ const Slick = props => {
                 <div className={"slick-track"} style={slickTrackStyle}>
                     {/* Cloned Slick */}
                     {/*<SlickItem />*/}
-                    {props.children.map((child, index)=> (
+                    {props.children.map((child, index) => (
                         <SlickItem
                             id={`slick-slide${index}`}
-                            data-slick-index={`${index+1}`}
+                            data-slick-index={`${index + 1}`}
                             aria-hidden={true}
                             tabindex={"-1"}
                             role={"tabpanel"}

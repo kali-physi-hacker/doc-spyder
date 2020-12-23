@@ -24,19 +24,23 @@ const Footer = () => {
                                     <div className="social-icon">
                                         <ul>
                                             <li>
-                                                <NavLink to={"#"} target="_blank"><i className="fab fa-facebook-f"></i> </NavLink>
+                                                <NavLink to={"#"} target="_blank"><i className="fab fa-facebook-f"></i>
+                                                </NavLink>
                                             </li>
                                             <li>
-                                                <NavLink to={"#"} target="_blank"><i className="fab fa-twitter"></i> </NavLink>
+                                                <NavLink to={"#"} target="_blank"><i className="fab fa-twitter"></i>
+                                                </NavLink>
                                             </li>
                                             <li>
                                                 <NavLink to={"#"} target="_blank"><i className="fab fa-linkedin-in"></i></NavLink>
                                             </li>
                                             <li>
-                                                <NavLink to={"#"} target="_blank"><i className="fab fa-instagram"></i></NavLink>
+                                                <NavLink to={"#"} target="_blank"><i
+                                                    className="fab fa-instagram"></i></NavLink>
                                             </li>
                                             <li>
-                                                <NavLink to={"#"} target="_blank"><i className="fab fa-dribbble"></i> </NavLink>
+                                                <NavLink to={"#"} target="_blank"><i className="fab fa-dribbble"></i>
+                                                </NavLink>
                                             </li>
                                         </ul>
                                     </div>
@@ -72,7 +76,8 @@ const Footer = () => {
                                 <ul>
                                     <li><NavLink to={"#"}><i
                                         className="fas fa-angle-double-right"></i> Appointments</NavLink></li>
-                                    <li><NavLink to={"#"}><i className="fas fa-angle-double-right"></i> Chat</NavLink></li>
+                                    <li><NavLink to={"#"}><i className="fas fa-angle-double-right"></i> Chat</NavLink>
+                                    </li>
                                     <li><NavLink to={"#"}><i className="fas fa-angle-double-right"></i> Login</NavLink>
                                     </li>
                                     <li><NavLink to={"#"}><i

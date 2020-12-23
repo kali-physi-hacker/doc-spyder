@@ -8,9 +8,9 @@ import Header from "./Header";
 const Layout = props => {
     return (
         <div className="main-wrapper">
-            <Header />
+            <Header/>
             {props.children}
-            <Footer />
+            <Footer/>
         </div>
     )
 }

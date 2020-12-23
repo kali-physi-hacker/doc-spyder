@@ -10,9 +10,9 @@ import AvailableFeature from "../components/Home/AvailableFeature";
 const Home = () => {
     return (
         <>
-            <Banner />
-            <ClinicSpecialities />
-            <Book />
+            <Banner/>
+            <ClinicSpecialities/>
+            <Book/>
             <AvailableFeature/>
         </>
     )

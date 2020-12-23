@@ -19,13 +19,13 @@ const Header = () => {
 							</span>
                     </NavLink>
                     <NavLink to={'/'} className="navbar-brand logo">
-                        <img src={logo} className="img-fluid" alt="Logo" />
+                        <img src={logo} className="img-fluid" alt="Logo"/>
                     </NavLink>
                 </div>
                 <div className="main-menu-wrapper">
                     <div className="menu-header">
                         <NavLink to={"#"} className="menu-logo">
-                            <img src={logo} className="img-fluid" alt="Logo" />
+                            <img src={logo} className="img-fluid" alt="Logo"/>
                         </NavLink>
                         <NavLink to={"#"} id="menu_close" className="menu-close">
                             <i className="fas fa-times"></i>

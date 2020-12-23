@@ -44,11 +44,11 @@ const Slide = () => {
     return (
         <Slider className={"specialities-slider slider"} {...settings}>
 
-            <SliderItem name={"Urology"} image={speciality1} />
-            <SliderItem name={"Neurology"} image={speciality2} />
-            <SliderItem name={"Orthopedic"} image={speciality3} />
-            <SliderItem name={"Cardiologist"} image={speciality4} />
-            <SliderItem name={"Dentist"} image={speciality5} />
+            <SliderItem name={"Urology"} image={speciality1}/>
+            <SliderItem name={"Neurology"} image={speciality2}/>
+            <SliderItem name={"Orthopedic"} image={speciality3}/>
+            <SliderItem name={"Cardiologist"} image={speciality4}/>
+            <SliderItem name={"Dentist"} image={speciality5}/>
 
             <SliderItem name={"Urology"} image={speciality1}/>
             <SliderItem name={"Neurology"} image={speciality2}/>

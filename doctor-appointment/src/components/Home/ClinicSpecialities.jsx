@@ -13,7 +13,7 @@ const ClinicSpecialities = () => {
                 </div>
                 <div className="row justify-content-center">
                     <div className="col-md-9">
-                        <Slide />
+                        <Slide/>
                     </div>
                 </div>
             </div>
