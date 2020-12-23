@@ -10,86 +10,51 @@ import speciality4 from '../../assets/img/specialities/specialities-04.png'
 import speciality5 from '../../assets/img/specialities/specialities-05.png'
 
 
+const SliderItem = props => {
+    return (
+        <div className="speicality-item text-center">
+            <div className="speicality-img">
+                <img src={props.image} className="img-fluid"
+                     alt="Speciality"/>
+                <span><i className="fa fa-circle" aria-hidden="true"></i></span>
+            </div>
+            <p>{props.name}</p>
+        </div>
+    )
+}
+
 const Slide = () => {
 
     const settings = {
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 7,
+        slidesToShow: 5,
         slidesToScroll: 1,
+        variableWidth: true,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3
+                }
+            }
+        ]
     }
     return (
         <Slider className={"specialities-slider slider"} {...settings}>
 
-            <div className="speicality-item text-center">
-                <div className="speicality-img">
-                    <img src={speciality1} className="img-fluid"
-                         alt="Speciality"/>
-                    <span><i className="fa fa-circle" aria-hidden="true"></i></span>
-                </div>
-                <p>Urology</p>
-            </div>
+            <SliderItem name={"Urology"} image={speciality1} />
+            <SliderItem name={"Neurology"} image={speciality2} />
+            <SliderItem name={"Orthopedic"} image={speciality3} />
+            <SliderItem name={"Cardiologist"} image={speciality4} />
+            <SliderItem name={"Dentist"} image={speciality5} />
 
-            <div className="speicality-item text-center">
-                <div className="speicality-img">
-                    <img src={speciality2} className="img-fluid"
-                         alt="Speciality"/>
-                    <span><i className="fa fa-circle" aria-hidden="true"></i></span>
-                </div>
-                <p>Neurology</p>
-            </div>
-
-            <div className="speicality-item text-center">
-                <div className="speicality-img">
-                    <img src={speciality3} className="img-fluid"
-                         alt="Speciality"/>
-                    <span><i className="fa fa-circle" aria-hidden="true"></i></span>
-                </div>
-                <p>Orthopedic</p>
-            </div>
-
-            <div className="speicality-item text-center">
-                <div className="speicality-img">
-                    <img src={speciality4} className="img-fluid"
-                         alt="Speciality"/>
-                    <span><i className="fa fa-circle" aria-hidden="true"></i></span>
-                </div>
-                <p>Cardiologist</p>
-            </div>
-
-            <div className="speicality-item text-center">
-                <div className="speicality-img">
-                    <img src={speciality5} className="img-fluid"
-                         alt="Speciality"/>
-                    <span><i className="fa fa-circle" aria-hidden="true"></i></span>
-                </div>
-                <p>Dentist</p>
-            </div>
-            <div className="speicality-item text-center">
-                <div className="speicality-img">
-                    <img src={speciality5} className="img-fluid"
-                         alt="Speciality"/>
-                    <span><i className="fa fa-circle" aria-hidden="true"></i></span>
-                </div>
-                <p>Dentist</p>
-            </div>
-            <div className="speicality-item text-center">
-                <div className="speicality-img">
-                    <img src={speciality5} className="img-fluid"
-                         alt="Speciality"/>
-                    <span><i className="fa fa-circle" aria-hidden="true"></i></span>
-                </div>
-                <p>Dentist</p>
-            </div>
-            <div className="speicality-item text-center">
-                <div className="speicality-img">
-                    <img src={speciality5} className="img-fluid"
-                         alt="Speciality"/>
-                    <span><i className="fa fa-circle" aria-hidden="true"></i></span>
-                </div>
-                <p>Dentist</p>
-            </div>
+            <SliderItem name={"Urology"} image={speciality1}/>
+            <SliderItem name={"Neurology"} image={speciality2}/>
+            <SliderItem name={"Orthopedic"} image={speciality3}/>
+            <SliderItem name={"Cardiologist"} image={speciality4}/>
+            <SliderItem name={"Dentist"} image={speciality5}/>
 
         </Slider>
     )
