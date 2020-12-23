@@ -1,6 +1,6 @@
 import React from "react";
 
-import Slick from "./Slick";
+import Slider from "react-slick";
 
 // Images Here
 import speciality1 from '../../assets/img/specialities/specialities-01.png'
@@ -10,9 +10,17 @@ import speciality4 from '../../assets/img/specialities/specialities-04.png'
 import speciality5 from '../../assets/img/specialities/specialities-05.png'
 
 
-const Slider = () => {
+const Slide = () => {
+
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 7,
+        slidesToScroll: 1,
+    }
     return (
-        <Slick className="specialities-slider slider">
+        <Slider className={"specialities-slider slider"} {...settings}>
 
             <div className="speicality-item text-center">
                 <div className="speicality-img">
@@ -58,10 +66,34 @@ const Slider = () => {
                 </div>
                 <p>Dentist</p>
             </div>
+            <div className="speicality-item text-center">
+                <div className="speicality-img">
+                    <img src={speciality5} className="img-fluid"
+                         alt="Speciality"/>
+                    <span><i className="fa fa-circle" aria-hidden="true"></i></span>
+                </div>
+                <p>Dentist</p>
+            </div>
+            <div className="speicality-item text-center">
+                <div className="speicality-img">
+                    <img src={speciality5} className="img-fluid"
+                         alt="Speciality"/>
+                    <span><i className="fa fa-circle" aria-hidden="true"></i></span>
+                </div>
+                <p>Dentist</p>
+            </div>
+            <div className="speicality-item text-center">
+                <div className="speicality-img">
+                    <img src={speciality5} className="img-fluid"
+                         alt="Speciality"/>
+                    <span><i className="fa fa-circle" aria-hidden="true"></i></span>
+                </div>
+                <p>Dentist</p>
+            </div>
 
-        </Slick>
+        </Slider>
     )
 }
 
 
-export default Slider
+export default Slide
