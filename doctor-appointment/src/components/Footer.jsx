@@ -2,7 +2,7 @@ import React from 'react'
 
 // Assets Here
 import logo from '../assets/img/footer-logo.png'
-import {NavLink} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 
 
 const Footer = () => {
@@ -50,16 +50,16 @@ const Footer = () => {
                             <div className="footer-widget footer-menu">
                                 <h2 className="footer-title">For Patients</h2>
                                 <ul>
-                                    <li><a href="search.html"><i className="fas fa-angle-double-right"></i> Search for
-                                        Doctors</a></li>
-                                    <li><a href="login.html"><i className="fas fa-angle-double-right"></i> Login</a>
+                                    <li><Link to={"#"}><i className="fas fa-angle-double-right"></i> Search for
+                                        Doctors</Link></li>
+                                    <li><Link to={"#"}><i className="fas fa-angle-double-right"></i> Login</Link>
                                     </li>
-                                    <li><a href="register.html"><i
-                                        className="fas fa-angle-double-right"></i> Register</a></li>
-                                    <li><a href="booking.html"><i className="fas fa-angle-double-right"></i> Booking</a>
+                                    <li><Link to={"#"}><i
+                                        className="fas fa-angle-double-right"></i> Register</Link></li>
+                                    <li><Link to={"#"}><i className="fas fa-angle-double-right"></i> Booking</Link>
                                     </li>
-                                    <li><a href="patient-dashboard.html"><i
-                                        className="fas fa-angle-double-right"></i> Patient Dashboard</a></li>
+                                    <li><Link to={"#"}><i
+                                        className="fas fa-angle-double-right"></i> Patient Dashboard</Link></li>
                                 </ul>
                             </div>
 

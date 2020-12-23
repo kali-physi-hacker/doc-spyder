@@ -1,4 +1,5 @@
 import React from "react";
+import {Link } from "react-router-dom";
 
 import Slider from 'react-slick'
 
@@ -16,17 +17,17 @@ const BookItem = (props) => {
     return (
         <div className="profile-widget">
             <div className="doc-img">
-                <a href="doctor-profile.html">
+                <Link to={"#"}>
                     <img className="img-fluid" alt="User Image"
                          src={props.image}/>
-                </a>
-                <a href="#" className="fav-btn">
+                </Link>
+                <Link to="#" className="fav-btn">
                     <i className="far fa-bookmark"></i>
-                </a>
+                </Link>
             </div>
             <div className="pro-content">
                 <h3 className="title">
-                    <a href="doctor-profile.html">{props.name}</a>
+                    <Link to={"#"}>{props.name}</Link>
                     <i className="fas fa-check-circle verified"></i>
                 </h3>
                 <p className="speciality">{props.speciality}</p>
@@ -53,10 +54,10 @@ const BookItem = (props) => {
                 </ul>
                 <div className="row row-sm">
                     <div className="col-6">
-                        <a href="doctor-profile.html" className="btn view-btn">View Profile</a>
+                        <Link to={"#"} className="btn view-btn">View Profile</Link>
                     </div>
                     <div className="col-6">
-                        <a href="booking.html" className="btn book-btn">Book Now</a>
+                        <Link to={"#"} className="btn book-btn">Book Now</Link>
                     </div>
                 </div>
             </div>
@@ -124,7 +125,7 @@ const Book = () => {
                             <p>web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem
                                 ipsum' will uncover many web sites still in their infancy. Various versions have evolved
                                 over the years, sometimes</p>
-                            <a href="javascript:;">Read More..</a>
+                            <Link to={"#"}>Read More..</Link>
                         </div>
                     </div>
                     <div className="col-lg-8">
