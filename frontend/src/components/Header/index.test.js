@@ -19,9 +19,9 @@ describe('Header Component Unit Testing', () => {
         expect(wrapper.length).toBe(1)
     })
 
-    it('Should render one (1) logo image', () => {
-        const wrapper = component.find("[data-test='logoImg']")
-        expect(wrapper.length).toBe(1)
+    it('Should render one (2) logo image', () => {
+        const wrapper = component.find("NavLink img")
+        expect(wrapper.length).toBe(2)
     })
 
     it('Should render with 4 links', () => {
