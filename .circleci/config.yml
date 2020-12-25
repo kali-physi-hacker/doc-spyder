@@ -59,7 +59,7 @@ executors:
     description: |
       Python Django runtime environment
     docker:
-      - image: circleci/python:<<parameters.python>>-browser
+      - image: circleci/python:<<parameters.python>>-browsers
     parameters:
       python:
         default: "3.9"
