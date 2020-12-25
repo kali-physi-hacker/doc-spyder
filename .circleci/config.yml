@@ -99,12 +99,25 @@ jobs:
       - store_artifacts:
           path: test-reports/
           destination: python_app
+
   django_checks:
     executor: python_environment
     steps:
       - attach_workspace:
           at: ~/
-      - django_unittests:
+      - django_checks:
+      - store_test_results:
+          path: reports/django_checks
+      - store_artifacts:
+          path: test-reports/
+          destination: python_app
+
+  django_unittest:
+    executor: python_environment
+    steps:
+      - attach_workspace:
+          at: ~/
+      - django_unittest:
       - store_test_results:
           path: reports/django_unittests
       - store_artifacts:
