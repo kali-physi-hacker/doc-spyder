@@ -1,15 +1,1 @@
-import environ
-
-
-root = environ.Path(__file__)
-env = environ.Env()
-environ.Env().read_env()
-
-
-SITE_ROOT = root()
-
-
-DEBUG = env.bool("DEBUG", default=False)
-
-
-SECRET_KEY = env.str("SECRET_KEY")
+SECRET_KEY = 'oxbes^t9@8+t!s8898jh!&b1s04aj=s8^0qeg1js8g4iow0(h+'
