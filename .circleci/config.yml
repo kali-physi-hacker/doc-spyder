@@ -41,7 +41,6 @@ commands:
       - run:
           command: |
             source ../venv/bin/activate
-#            python manage.py check --settings=doctor_appointment.settings_dev
             python manage.py makemigrations --settings=doctor_appointment.settings_dev
 
           working_directory: ./backend
