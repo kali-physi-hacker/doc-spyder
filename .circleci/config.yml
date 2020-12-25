@@ -42,7 +42,7 @@ commands:
           command: |
             source ../venv/bin/activate
             python manage.py check
-            python manage.py makemigrations --settings=doc_spyder.settings_dev
+            python manage.py makemigrations --settings=doctor_appointment.settings_dev
 
           working_directory: ./backend
   django_unittests:
