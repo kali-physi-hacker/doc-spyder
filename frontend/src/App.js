@@ -5,7 +5,6 @@ import {Route, Switch} from 'react-router-dom'
 
 // My Components (Pages) Imports Here
 import Layout from "./components/Layout/Layout";
-import Home from './pages/Home'
 
 
 const App = () => {

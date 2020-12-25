@@ -1,0 +1,9 @@
+.center {
+    background-color: var(--pink);
+}
+
+.slick-center {
+    opacity: 1;
+    transform: scale(1.20);
+    background: blue;
+}
