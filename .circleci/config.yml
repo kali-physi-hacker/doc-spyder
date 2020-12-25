@@ -112,12 +112,12 @@ jobs:
           path: test-reports/
           destination: python_app
 
-  django_unittest:
+  django_unittests:
     executor: python_environment
     steps:
       - attach_workspace:
           at: ~/
-      - django_unittest:
+      - django_unittests:
       - store_test_results:
           path: reports/django_unittests
       - store_artifacts:
