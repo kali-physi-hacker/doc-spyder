@@ -41,11 +41,10 @@ commands:
       - run:
           command: |
             source ./venv/bin/activate
-            cd backend
             python manage.py check
             python manage.py makemigrations --settings=doc_spyder.settings_dev
 
-          working_directory: .
+          working_directory: ./backend
   django_unittests:
     steps:
       - run:
@@ -53,7 +52,7 @@ commands:
             source ./venv/bin/activate
             python manage.py test --settings=doc_spyder.settings_dev
 
-          working_directory: .
+          working_directory: ./backend
 
 
 ###################################################################
