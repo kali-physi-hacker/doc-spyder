@@ -3,7 +3,7 @@ import React from 'react'
 import {NavLink, Link} from 'react-router-dom'
 
 // Assets Here
-import logo from '../assets/img/logo.png'
+import logo from '../../assets/img/logo.png'
 
 
 const Header = () => {
