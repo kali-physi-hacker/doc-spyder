@@ -43,11 +43,11 @@ const Login = () => {
                                         <div className="row form-row social-login">
                                             <div className="col-6">
                                                 <a href="#" className="btn btn-facebook btn-block"><i
-                                                    className="fab fa-facebook-f mr-1"></i> Login</a>
+                                                    className="fab fa-facebook-f mr-1"/> Login</a>
                                             </div>
                                             <div className="col-6">
                                                 <a href="#" className="btn btn-google btn-block"><i
-                                                    className="fab fa-google mr-1"></i> Login</a>
+                                                    className="fab fa-google mr-1"/> Login</a>
                                             </div>
                                         </div>
                                         <div className="text-center dont-have">Don’t have an account? <a
