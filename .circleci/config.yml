@@ -41,6 +41,7 @@ commands:
       - run:
           command: |
             source ./venv/bin/activate
+            cd backend
             python manage.py check
             python manage.py makemigrations --settings=doc_spyder.settings_dev
 
