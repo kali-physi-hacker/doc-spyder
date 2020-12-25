@@ -5,16 +5,16 @@ import {Route, Switch} from 'react-router-dom'
 
 // My Components (Pages) Imports Here
 import Layout from "./components/Layout";
+
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import ForgetPassword from './pages/ForgetPassword'
+import ForgetPassword from './pages/ForgotPassword'
 import Calendar from './pages/Calendar';
-import VoiceCall from './pages/Voice-Call';
-import VideoCall from './pages/Video-Call';
-import SearchDoctor from './pages/Search-Dorctor';
-import Invoices from './components/Invoices/Invoices';
-import InvoiceView from './components/Invoices/Invoice-View';
+import VoiceCall from './pages/VoiceCall';
+import VideoCall from './pages/VideoCall';
+import SearchDoctor from './pages/SearchDoctor';
+
 
 const App = () => {
     return (
@@ -28,8 +28,6 @@ const App = () => {
                 <Route path={"/voice-call"} component={VoiceCall}/>
                 <Route path={"/video-call"} component={VideoCall}/>
                 <Route path={"/search"} component={SearchDoctor}/>
-                <Route path={"/invoices"} component={Invoices}/>
-                <Route path={"/invoice-view"} component={InvoiceView}/>
             </Switch>
         </Layout>
     )
