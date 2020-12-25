@@ -34,7 +34,7 @@ commands:
       - run:
           command: |
             source ./venv/bin/activate
-            black --line-length 117 --check .
+            black --line-length 117 --check backend
   django_checks:
     steps:
       - run:
