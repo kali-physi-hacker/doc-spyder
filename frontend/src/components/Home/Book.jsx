@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import _ from 'lodash'
 
 import Slider from 'react-slick'
 
@@ -15,17 +16,21 @@ import doctorImage8 from '../../assets/img/doctors/doctor-08.jpg' ;
 
 const BookDoctorCard = (props) => {
 
-    // const getRating = () => {
-    //     const ratingArr = []
-    //     for (let i=0; i<props.rating; i++) {
-    //         ratingArr.
-    //     }
-    // }
+    const getRating = () => {
+        const ratingArr = []
+        _.times(props.rating, n=> {
+            ratingArr.push(<i className={"fas fa-star filled"}/>)
+        })
+        _.times((5 - props.rating), n=> {
+            ratingArr.push(<i className={"fas fa-star"} />)
+        })
+        return ratingArr
+    }
     return (
         <div className="profile-widget">
             <div className="doc-img">
                 <Link to={"#"}>
-                    <img className="img-fluid" alt="User Image"
+                    <img className="img-fluid" alt="User"
                          src={props.image}/>
                 </Link>
                 <Link to="#" className="fav-btn">
@@ -40,13 +45,9 @@ const BookDoctorCard = (props) => {
                 <p className="speciality">{props.speciality}</p>
                 <div className="rating">
                     {
-
+                        getRating()
                     }
-                    {/*<i className="fas fa-star filled"/>*/}
-                    {/*<i className="fas fa-star filled"/>*/}
-                    {/*<i className="fas fa-star filled"/>*/}
-                    {/*<i className="fas fa-star filled"/>*/}
-                    <span className="d-inline-block average-rating">({props.rating})</span>
+                    <span className="d-inline-block average-rating">({props.ratingP})</span>
                 </div>
                 <ul className="available-info">
                     <li>
@@ -82,7 +83,13 @@ const BookSlider = () => {
         speed: 500,
         slidesToShow: 3,
         slidesToScroll: 1,
-        variableWidth: true
+        variableWidth: true,
+        responsive: [
+            {
+                breakpoint: 992,
+                variableWidth: false
+            }
+        ]
     }
 
     return (
@@ -90,37 +97,37 @@ const BookSlider = () => {
 
             {/*Doctor Widget */}
 
-            <BookDoctorCard rating={"17"} name={"Ruby Perrin"}
+            <BookDoctorCard ratingP={17} rating={5} name={"Ruby Perrin"}
                             speciality={"MDS - Periodontology and Oral Implantology, BDS"}
                             place={"Florida, USA"} image={doctorImage1} price={"$300 - $1000"}
                             availability={"Available on Fri, 22 Mar"}/>
-            <BookDoctorCard rating={"35"} name={"Darren Elder"} speciality={"BDS, MDS - Oral & Maxillofacial Surgery"}
+            <BookDoctorCard ratingP={37} rating={4} name={"Darren Elder"} speciality={"BDS, MDS - Oral & Maxillofacial Surgery"}
                             place={"Newyork, USA"} image={doctorImage2} price={"$50 - $300"}
                             availability={"Available on Fri, 22 Mar"}/>
-            <BookDoctorCard rating={"27"} name={"Deborah Angel"}
+            <BookDoctorCard ratingP={27} rating={4} name={"Deborah Angel"}
                             speciality={"MBBS, MD - General Medicine, DNB - Cardiology"}
                             place={"Georgia, USA"} image={doctorImage3} price={"$100 - $400"}
                             availability={"Available on Fri, 22 Mar"}/>
-            <BookDoctorCard rating={"4"} name={"Sofia Brient"} speciality={"MBBS, MS - General Surgery, MCh - Urology"}
+            <BookDoctorCard ratingP={4} rating={4} name={"Sofia Brient"} speciality={"MBBS, MS - General Surgery, MCh - Urology"}
                             place={"Louisiana, USA"} image={doctorImage4} price={"$150 - $300"}
                             availability={"Fri, 22 Mar"}/>
-            <BookDoctorCard rating={"66"} name={"Marvin Campbell"}
+            <BookDoctorCard ratingP={66} rating={4} name={"Marvin Campbell"}
                             speciality={"MBBS, MD - Ophthalmology, DNB - Ophthalmology"}
                             place={"Michigan, USA"} image={doctorImage5} price={"$50 - $700"}
                             availability={"Fri, 22 Mar"}/>
-            <BookDoctorCard rating={"52"} name={"Katharine Berthold"}
+            <BookDoctorCard ratingP={52} rating={4} name={"Katharine Berthold"}
                             speciality={"MS - Orthopaedics, MBBS, M.Ch - Orthopaedics"}
                             place={"Texas, USA"} image={doctorImage6} price={"$100 - $500"}
                             availability={"Fri, 22 Mar"}/>
-            <BookDoctorCard rating={"43"} name={"Linda Tobin"}
+            <BookDoctorCard ratingP={17} rating={4} name={"Linda Tobin"}
                             speciality={"MBBS, MD - General Medicine, DM - Neurology"}
                             place={"Kansas, USA"} image={doctorImage7} price={"$50 - $700"}
                             availability={"Fri, 22 Mar"}/>
-            <BookDoctorCard rating={"49"} name={"Katharine Berthold"}
+            <BookDoctorCard ratingP={43} rating={"49"} name={"Katharine Berthold"}
                             speciality={"MS - Orthopaedics, MBBS, M.Ch - Orthopaedics"}
                             place={"Texas, USA"} image={doctorImage8} price={"$100 - $1000"}
                             availability={"Fri, 22 Mar"}/>
-            <BookDoctorCard rating={"17"} name={"Paul Richard"}
+            <BookDoctorCard ratingP={49} rating={4} name={"Paul Richard"}
                             speciality={"MBBS, MD - Dermatology , Venereology & Lepros"}
                             place={"California, USA"} image={doctorImage7} price={"$100 - $400"}
                             availability={"Fri, 22 Mar"}/>

@@ -4,15 +4,15 @@ import React from 'react'
 import {Route, Switch} from 'react-router-dom'
 
 // My Components (Pages) Imports Here
-import Layout from "./components/Layout";
+import Layout from "./components/Layout/Layout";
 import Home from './pages/Home'
-import Book from "./components/Home/Book";
+
 
 const App = () => {
     return (
         <Layout>
             <Switch>
-                <Route path={"/"} exact={true} component={Home} />
+                <Route path={"/"} exact={true} component={Home}/>
             </Switch>
         </Layout>
     )

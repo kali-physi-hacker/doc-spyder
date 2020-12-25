@@ -11,7 +11,7 @@ import feature from '../../assets/img/features/feature.png';
 
 const FeatureItem = (props) => {
     return (
-        <div className="feature-item text-center">
+        <div className="feature-item text-center mr-4 d-flex flex-column justify-content-around align-items-center">
             <img src={props.image} className="img-fluid" alt="Feature"/>
             <p>{props.name}</p>
         </div>
@@ -25,13 +25,14 @@ const FeatureSlider = () => {
         dots: true,
         infinite: true,
         centerMode: true,
-        slidesToShow: 3,
+        centerPadding: "60px",
+        className: "center",
+        slidesToShow: 5,
         speed: 500,
-        variableWidth: true,
         arrows: false,
         autoplay: false,
         responsive: [{
-            breakpoint: 992,
+            breakpoint: 1024,
             settings: {
                 slidesToShow: 1
             }
