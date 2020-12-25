@@ -86,7 +86,7 @@ jobs:
             - project
           root: ~/
       - save_cache:
-          key: deps1-{{ .Branch }}-{{ checksum "requirements01.txt" }}
+          key: deps1-{{ .Branch }}-{{ checksum "backend/requirements01.txt" }}
           paths:
             - "venv"
   linting:
