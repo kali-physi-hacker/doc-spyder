@@ -7,11 +7,21 @@ from rest_framework import serializers
 User = get_user_model()
 
 
-class SignupSerializer(serializers.Serializer):
+class LoginSerializer(serializers.Serializer):
+    def update(self, instance, validated_data):
+        pass
 
-    first_name = serializers.CharField(max_length=100, required=True)
-    email = serializers.EmailField(required=True)
-    password = serializers.CharField(trim_whitespace=True, required=True)
+    def create(self, validated_data):
+        pass
+
+    email = serializers.CharField(max_length=100)
+    password = serializers.CharField(max_length=100)
+
+
+class SignupSerializer(serializers.Serializer):
+    first_name = serializers.CharField(max_length=100)
+    email = serializers.EmailField()
+    password = serializers.CharField(trim_whitespace=True)
 
     def update(self, instance, validated_data):
         pass
