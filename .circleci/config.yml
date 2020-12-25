@@ -105,7 +105,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/
-      - django_checks:
+      - django_checks
       - store_test_results:
           path: reports/django_checks
       - store_artifacts:
@@ -117,7 +117,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/
-      - django_unittests:
+      - django_unittests
       - store_test_results:
           path: reports/django_unittests
       - store_artifacts:
