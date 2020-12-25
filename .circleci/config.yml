@@ -27,6 +27,7 @@ commands:
             source venv/bin/activate
             pip install --upgrade pip
             pip install -r backend/requirements01.txt
+            pip install black
   linting:
     description: |
       Make sure that python code is black formatted with line length of 117
