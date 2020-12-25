@@ -4,8 +4,8 @@ import React from 'react'
 import {Route, Switch} from 'react-router-dom'
 
 // My Components (Pages) Imports Here
-import Layout from "./components/Layout/Layout";
-import Home from './pages/Home/'
+import Layout from "./components/Layout";
+import Home from './pages/Home'
 
 
 const App = () => {
