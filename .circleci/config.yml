@@ -41,6 +41,7 @@ commands:
             source ./venv/bin/activate
             python manage.py check
             python manage.py makemigrations --settings=doc_spyder.settings_dev
+
           working_directory: .
   django_unittests:
     steps:
@@ -73,7 +74,7 @@ jobs:
       before_install:
         default:
           - checkout
-          type: steps
+        type: steps
     steps:
       - steps: <<paramters.before_install>>
       - restore_cache:
