@@ -7,7 +7,7 @@ import BookingSection from "../../components/Home/Book";
 import AvailableFeature from "../../components/Home/AvailableFeature";
 
 // Assets imports Here
-import './styles.css'
+import './styles.scss'
 
 
 const Home = () => {
