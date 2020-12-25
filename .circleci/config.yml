@@ -76,7 +76,7 @@ jobs:
           - checkout
         type: steps
     steps:
-      - steps: <<paramters.before_install>>
+      - steps: <<parameters.before_install>>
       - restore_cache:
           key: deps1-{{ .Branch }}-{{ checksum "requirements01.txt" }}
       - python_install
