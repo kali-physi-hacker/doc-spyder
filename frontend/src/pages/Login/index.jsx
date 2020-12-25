@@ -1,11 +1,11 @@
 import React from 'react';
 
-import LoginImage from '../assets/img/login-banner.png';
+import LoginImage from '../../assets/img/login-banner.png';
 
 const Login = () => {
 
     return (
-        <div className="content"  >
+        <div className="content">
             <div className="container-fluid">
 
                 <div className="row">
@@ -15,7 +15,7 @@ const Login = () => {
                         <div className="account-content">
                             <div className="row align-items-center justify-content-center">
                                 <div className="col-md-7 col-lg-6 login-left">
-                                    <img src={LoginImage} className="img-fluid" alt="Doccure Login" />
+                                    <img src={LoginImage} className="img-fluid" alt="Doccure Login"/>
                                 </div>
                                 <div className="col-md-12 col-lg-6 login-right">
                                     <div className="login-header">
@@ -27,8 +27,8 @@ const Login = () => {
                                             <label className="focus-label">Email</label>
                                         </div>
                                         <div className="form-group form-focus">
-                                            <input type="password" className="form-control floating" />
-                                                <label className="focus-label">Password</label>
+                                            <input type="password" className="form-control floating"/>
+                                            <label className="focus-label">Password</label>
                                         </div>
                                         <div className="text-right">
                                             <a className="forgot-link" href="forgot-password.html">Forgot Password ?</a>

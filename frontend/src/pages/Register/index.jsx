@@ -1,8 +1,8 @@
 import React from 'react';
 
-import RegisterImage from '../assets/img/login-banner.png';
+import RegisterImage from '../../assets/img/login-banner.png';
 
-const Register = (props) =>{
+const Register = (props) => {
     return (
         <div className="content">
             <div className="container-fluid">
@@ -14,7 +14,7 @@ const Register = (props) =>{
                         <div className="account-content">
                             <div className="row align-items-center justify-content-center">
                                 <div className="col-md-7 col-lg-6 login-left">
-                                    <img src={RegisterImage} className="img-fluid" alt="Doccure Register" />
+                                    <img src={RegisterImage} className="img-fluid" alt="Doccure Register"/>
                                 </div>
                                 <div className="col-md-12 col-lg-6 login-right">
                                     <div className="login-header">
@@ -24,16 +24,16 @@ const Register = (props) =>{
                                     {/*Register Form */}
                                     <form action="https://dreamguys.co.in/demo/doccure/doctor-dashboard.html">
                                         <div className="form-group form-focus">
-                                            <input type="text" className="form-control floating" />
-                                                <label className="focus-label">Name</label>
+                                            <input type="text" className="form-control floating"/>
+                                            <label className="focus-label">Name</label>
                                         </div>
                                         <div className="form-group form-focus">
                                             <input type="text" className="form-control floating"/>
-                                                <label className="focus-label">Mobile Number</label>
+                                            <label className="focus-label">Mobile Number</label>
                                         </div>
                                         <div className="form-group form-focus">
                                             <input type="password" className="form-control floating"/>
-                                                <label className="focus-label">Create Password</label>
+                                            <label className="focus-label">Create Password</label>
                                         </div>
                                         <div className="text-right">
                                             <a className="forgot-link" href="login.html">Already have an account?</a>

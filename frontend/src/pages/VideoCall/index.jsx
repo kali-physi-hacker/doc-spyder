@@ -1,15 +1,15 @@
 import React from 'react';
 
 //Component imported here
-import VideoImage1 from '../assets/img/patients/patient1.jpg';
-import VideoImage2 from '../assets/img/video-call.jpg';
+import VideoImage1 from '../../assets/img/patients/patient1.jpg';
+import VideoImage2 from '../../assets/img/video-call.jpg';
 
 const VideoCall = () => {
     return (
         <div className="content">
             <div className="container-fluid">
 
-               {/*Call Wrapper*/}
+                {/*Call Wrapper*/}
                 <div className="call-wrapper">
                     <div className="call-main-row">
                         <div className="call-main-wrapper">
@@ -24,8 +24,8 @@ const VideoCall = () => {
                                                     <a className="avatar avatar-sm mr-2" href="patient-profile.html"
                                                        title="Charlene Reed">
                                                         <img src={VideoImage1} alt="User Image"
-                                                             className="rounded-circle" />
-                                                            <span className="status online"></span>
+                                                             className="rounded-circle"/>
+                                                        <span className="status online"></span>
                                                     </a>
                                                 </div>
                                                 <div className="user-info float-left">
@@ -46,19 +46,19 @@ const VideoCall = () => {
                                             </ul>
                                         </div>
                                     </div>
-                                     {/*/Call Header */}
+                                    {/*/Call Header */}
 
-                                     {/*Call Contents */}
+                                    {/*Call Contents */}
                                     <div className="call-contents">
                                         <div className="call-content-wrap">
                                             <div className="user-video">
-                                                <img src={VideoImage2} alt="User Image" />
+                                                <img src={VideoImage2} alt="User Image"/>
                                             </div>
                                             <div className="my-video">
                                                 <ul>
                                                     <li>
                                                         <img src={VideoImage1}
-                                                             className="img-fluid" alt="User Image" />
+                                                             className="img-fluid" alt="User Image"/>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -66,7 +66,7 @@ const VideoCall = () => {
                                     </div>
                                     {/*Call Contents */}
 
-                                     {/*Call Footer */}
+                                    {/*Call Footer */}
                                     <div className="call-footer">
                                         <div className="call-icons">
                                             <span className="call-duration">00:59</span>
@@ -103,7 +103,7 @@ const VideoCall = () => {
                                             </div>
                                         </div>
                                     </div>
-                                     {/*/Call Footer */}
+                                    {/*/Call Footer */}
 
                                 </div>
                             </div>
@@ -111,7 +111,7 @@ const VideoCall = () => {
                         </div>
                     </div>
                 </div>
-                 {/*/Call Wrapper*/}
+                {/*/Call Wrapper*/}
 
             </div>
 
