@@ -32,8 +32,7 @@ class Login(GenericViewSet):
         serializer = LoginSerializer(data=request.data)
 
         if not serializer.is_valid():
-            data = serializer.errors
-            data["success"] = False
+            data = {"success": False, "errors": serializer.errors}
             return Response(data, status=status.HTTP_403_FORBIDDEN)
 
         username = serializer.validated_data["email"]

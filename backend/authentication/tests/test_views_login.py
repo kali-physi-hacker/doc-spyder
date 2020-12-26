@@ -70,14 +70,14 @@ class TestLogin(APITestCase):
         del data["email"]
         response = self.client.post(reverse("authentication:login"), data)
         self.assertEqual(response.status_code, 403)
-        self.assertEqual(response.json()["email"][0], error_messages.FIELD_REQUIRED)
+        self.assertEqual(response.json()["errors"]["email"][0], error_messages.FIELD_REQUIRED)
 
         # Test for no password
         data = self.user_data
         del data["password"]
         response = self.client.post(reverse("authentication:login"), data)
         self.assertEqual(response.status_code, 403)
-        self.assertEqual(response.json()["password"][0], error_messages.FIELD_REQUIRED)
+        self.assertEqual(response.json()["errors"]["password"][0], error_messages.FIELD_REQUIRED)
 
     def test_unauthenticated_user_is_rejected_with_error_message_and_403(self):
         """
