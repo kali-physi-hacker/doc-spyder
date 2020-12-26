@@ -26,8 +26,9 @@ commands:
             python3 -m venv venv
             source venv/bin/activate
             pip install --upgrade pip
-            pip install -r backend/requirements.txt
+            pip install -r requirements.txt
             pip install black
+          working_directory: ./backend
   linting:
     description: |
       Make sure that python code is black formatted with line length of 117
