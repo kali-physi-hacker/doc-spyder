@@ -99,3 +99,9 @@ SIMPLE_JWT = {"ACCESS_TOKEN_LIFETIME": timedelta(weeks=1)}
 COOKIE_MAX_AGE = 604800
 COOKIE_SECURE = True
 
+
+# Rest framework Config
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": ("authentication.backends.SafeJWTAuthentication",)
+}
+
