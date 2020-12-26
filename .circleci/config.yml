@@ -26,7 +26,7 @@ commands:
             python3 -m venv venv
             source venv/bin/activate
             pip install --upgrade pip
-            pip install -r backend/requirements01.txt
+            pip install -r backend/requirements.txt
             pip install black
   linting:
     description: |
