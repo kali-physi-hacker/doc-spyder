@@ -80,14 +80,14 @@ jobs:
     steps:
       - steps: <<parameters.before_install>>
       - restore_cache:
-          key: deps1-{{ .Branch }}-{{ checksum "backend/requirements01.txt" }}
+          key: deps1-{{ .Branch }}-{{ checksum "backend/requirements.txt" }}
       - python_install
       - persist_to_workspace:
           paths:
             - project
           root: ~/
       - save_cache:
-          key: deps1-{{ .Branch }}-{{ checksum "backend/requirements01.txt" }}
+          key: deps1-{{ .Branch }}-{{ checksum "backend/requirements.txt" }}
           paths:
             - "venv"
   linting:
