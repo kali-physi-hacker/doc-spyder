@@ -4,6 +4,8 @@ from django.contrib.auth import get_user_model
 
 from rest_framework import serializers
 
+from .error_messages import EMAIL_ALREADY_EXIST
+
 User = get_user_model()
 
 
@@ -35,6 +37,17 @@ class SignupSerializer(serializers.Serializer):
         data = validated_data
         data["username"] = data["email"]
         return User.objects.create_user(**data)
+
+    def validate_email(self, value):
+        """
+        Raise a ValidationError if user with that email already exists
+        :param value:
+        :return:
+        """
+        user = User.objects.filter(email=value).first()
+        if user is None:
+            return value
+        raise serializers.ValidationError(EMAIL_ALREADY_EXIST)
 
     def validate_password(self, value):
         """
