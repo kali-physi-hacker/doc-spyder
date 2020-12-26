@@ -1,4 +1,5 @@
-from django.contrib.auth import get_user_model, authenticate
+from django.contrib.auth import authenticate
+from django.conf import settings
 
 from rest_framework.response import Response
 from rest_framework import status
@@ -42,6 +43,8 @@ class LoginAPIView(GenericViewSet):
 
             response = Response({"success": True}, status=status.HTTP_200_OK)
             response.set_cookie(
-                "Authorization", value=f"Bearer {auth_token}", httponly=True,
-                max_age=
+                "Authorization", value=f"Bearer {auth_token}", httponly=False,
+                max_age=settings.COOKIE_MAX_AGE, expires=settings.COOKIE_MAX_AGE, samesite=None,
+                secure=settings.COOKIE_SECURE
             )
+            return response

@@ -1,4 +1,5 @@
 from pathlib import Path
+from datetime import timedelta
 
 import environ
 
@@ -88,3 +89,13 @@ USE_TZ = True
 
 
 STATIC_URL = "/static/"
+
+
+# SimpleJWT Conf
+SIMPLE_JWT = {"ACCESS_TOKEN_LIFETIME": timedelta(weeks=1)}
+
+
+# Cookie Conf
+COOKIE_MAX_AGE = 604800
+COOKIE_SECURE = True
+

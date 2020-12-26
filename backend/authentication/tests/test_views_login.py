@@ -28,11 +28,9 @@ class TestLogin(APITestCase):
         header and returns 200
         :return:
         """
-        response = self.client.post(reverse("authentication:login"), (self.user_data,))
+        response = self.client.post(reverse("authentication:login"), self.user_data, format="json")
         self.assertEqual(response.status_code, 200)
-        self.assertEqual("Authorization", response._headers)
-        self.assertIn("message", response.json().keys())
-        self.assertIn("email", response.json().keys())
+        self.assertTrue(response.json()["success"])
 
         auth_token = response.cookies["Authorization"].value
         self.assertTrue(auth_token.startswith("Bearer "))
