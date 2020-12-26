@@ -11,16 +11,10 @@ User = get_user_model()
 class TestLogin(APITestCase):
     def setUp(self):
         # Create some User here
-        User.objects.create_user(
-            username="test@email.com",
-            password="pTest@a12b"
-        )
+        User.objects.create_user(username="test@email.com", password="pTest@a12b")
 
         # User Login data
-        self.user_data = {
-            "email": "test@email.com",
-            "password": "pTest@a12b"
-        }
+        self.user_data = {"email": "test@email.com", "password": "pTest@a12b"}
 
         self.client = APIClient()
 

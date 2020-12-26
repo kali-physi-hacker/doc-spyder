@@ -22,7 +22,6 @@ def generate_auth_token(user):
 
 
 class Login(GenericViewSet):
-
     def login(self, request):
         """
         Login User and set Authorization token as cookie
@@ -42,16 +41,23 @@ class Login(GenericViewSet):
         user = authenticate(username=username, password=password)
 
         if user is None:
-            return Response({"success": False, "error": error_messages.INVALID_LOGIN_CREDENTIALS}, status=status.HTTP_401_UNAUTHORIZED)
+            return Response(
+                {"success": False, "error": error_messages.INVALID_LOGIN_CREDENTIALS},
+                status=status.HTTP_401_UNAUTHORIZED,
+            )
 
         # Generate auth token and set cookie headers here
         auth_token = generate_auth_token(user)["access"]
 
         response = Response({"success": True}, status=status.HTTP_200_OK)
         response.set_cookie(
-            "Authorization", value=f"Bearer {auth_token}", httponly=True,
-            max_age=settings.COOKIE_MAX_AGE, expires=settings.COOKIE_MAX_AGE, samesite=None,
-            secure=settings.COOKIE_SECURE
+            "Authorization",
+            value=f"Bearer {auth_token}",
+            httponly=True,
+            max_age=settings.COOKIE_MAX_AGE,
+            expires=settings.COOKIE_MAX_AGE,
+            samesite=None,
+            secure=settings.COOKIE_SECURE,
         )
         return response
 

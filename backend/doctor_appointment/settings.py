@@ -101,7 +101,4 @@ COOKIE_SECURE = True
 
 
 # Rest framework Config
-REST_FRAMEWORK = {
-    "DEFAULT_AUTHENTICATION_CLASSES": ("authentication.backends.SafeJWTAuthentication",)
-}
-
+REST_FRAMEWORK = {"DEFAULT_AUTHENTICATION_CLASSES": ("authentication.backends.SafeJWTAuthentication",)}

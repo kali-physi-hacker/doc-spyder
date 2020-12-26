@@ -10,11 +10,7 @@ User = get_user_model()
 
 class TestSignupSerializer(APITestCase):
     def setUp(self):
-        self.user_data = {
-            "first_name": "test",
-            "email": "test@email.com",
-            "password": "valid@a1b2c3iq"
-        }
+        self.user_data = {"first_name": "test", "email": "test@email.com", "password": "valid@a1b2c3iq"}
 
         self.RequiredError = "This field is required."
 
@@ -36,7 +32,7 @@ class TestSignupSerializer(APITestCase):
         del data["first_name"]
         serializer = SignupSerializer(data=data)
         self.assertFalse(serializer.is_valid())
-        self.assertEqual(serializer.errors['first_name'][0], self.RequiredError)
+        self.assertEqual(serializer.errors["first_name"][0], self.RequiredError)
 
     def test_serializer_is_false_if_no_email_in_user_data(self):
         """
