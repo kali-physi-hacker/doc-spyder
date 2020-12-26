@@ -4,5 +4,9 @@
 ## Django + React Doctor Appointment Application
 
 
+### Backend
+#### Api Endpoints
+1. Login (POST) <== {email, password}: `/api/auth/login/` ==> {success:bool} & sets cookie for Authorization
+
 ###### Status:
 Under development
