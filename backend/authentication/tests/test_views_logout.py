@@ -18,7 +18,9 @@ class TestLogout(APITestCase):
         Tests that logout deletes authorization cookie value
         :return:
         """
-        response = self.client.post(reverse("authentication:login"), {"email": self.user.username, "password": self.password})
+        response = self.client.post(
+            reverse("authentication:login"), {"email": self.user.username, "password": self.password}
+        )
         self.assertEqual(response.status_code, 200)
 
         response = self.client.get(reverse("authentication:logout"))

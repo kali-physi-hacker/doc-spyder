@@ -4,7 +4,6 @@ from rest_framework import status
 
 
 class Logout(GenericViewSet):
-
     def logout(self, request):
         """
         Delete the authorization cookie
