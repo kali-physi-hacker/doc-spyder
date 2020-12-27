@@ -51,4 +51,6 @@ class ActivateAccount(GenericViewSet):
 
         user.is_active = True
         user.save()
+
+        # redirect to frontend
         return Response({"success": True, "message": "Account Activated Successfully"})
