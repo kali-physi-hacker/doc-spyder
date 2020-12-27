@@ -3,7 +3,7 @@ from django.contrib.auth import get_user_model
 from rest_framework.test import APITestCase
 
 from authentication.serializers import SignupSerializer
-from authentication.error_messages import EMAIL_ALREADY_EXIST
+from authentication.error_messages import EMAIL_ALREADY_EXIST, INSECURE_PASSWORD
 
 
 User = get_user_model()
@@ -82,6 +82,16 @@ class TestSignupSerializer(APITestCase):
         self.assertFalse(serializer.is_valid())
         with self.assertRaises(AssertionError):
             serializer.save()
+
+    def test_serializer_returns_false_if_password_does_not_meet_validation_requirement(self):
+        """
+        Tests that serializer.is_valid() returns False if password is not strong
+        :return:
+        """
+        self.user_data["password"] = "abc"
+        serializer = SignupSerializer(data=self.user_data)
+        self.assertFalse(serializer.is_valid())
+        self.assertEqual(serializer.errors["password"][0], INSECURE_PASSWORD)
 
     def test_serializer_is_valid_returns_false_if_email_already_exists(self):
         """

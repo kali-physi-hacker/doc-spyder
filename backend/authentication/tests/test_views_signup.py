@@ -34,6 +34,17 @@ class TestSignup(APITestCase):
         # Test that user is inactive
         self.assertFalse(user.is_active)
 
+    def test_signup_returns_403_if_password_does_not_meet_validation_requirement(self):
+        """
+        Tests that signup returns 403 if password is not strong
+        :return:
+        """
+        self.user_data["password"] = "abc"
+        response = self.client.post(reverse("authentication:signup"), self.user_data)
+        self.assertEqual(response.status_code, 403)
+        self.assertFalse(response.json()["success"])
+        self.assertEqual(response.json()["errors"]["password"][0], error_messages.INSECURE_PASSWORD)
+
     def test_signup_does_not_create_user_and_returns_403_if_invalid_user_input_data(self):
         """
         Tests that signup does not create a new User and returns 403 if user
