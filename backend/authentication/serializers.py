@@ -1,12 +1,25 @@
-from django.contrib.auth.password_validation import validate_password
+from django.contrib.auth.password_validation import validate_password as validator
 from django.core.validators import ValidationError
 from django.contrib.auth import get_user_model
 
 from rest_framework import serializers
 
-from .error_messages import EMAIL_ALREADY_EXIST
+from .error_messages import EMAIL_ALREADY_EXIST, INSECURE_PASSWORD
 
 User = get_user_model()
+
+
+def validate_password(value):
+    """
+    Validate password using Django's default password validation
+    :param value:
+    :return:
+    """
+    try:
+        validator(value)
+    except ValidationError:
+        raise serializers.ValidationError(INSECURE_PASSWORD)
+    return value
 
 
 class LoginSerializer(serializers.Serializer):
@@ -17,7 +30,7 @@ class LoginSerializer(serializers.Serializer):
         pass
 
     email = serializers.CharField(max_length=100)
-    password = serializers.CharField(max_length=100)
+    password = serializers.CharField(max_length=100, trim_whitespace=True)
 
 
 class SignupSerializer(serializers.Serializer):
@@ -58,8 +71,19 @@ class SignupSerializer(serializers.Serializer):
         :param value:
         :return:
         """
-        try:
-            validate_password(value)
-        except ValidationError:
-            raise serializers.ValidationError(str(ValidationError))
-        return value
+        password = validate_password(value)
+        return password
+
+
+class ChangePasswordSerializer(serializers.Serializer):
+    old_password = serializers.CharField(max_length=100, trim_whitespace=True)
+    new_password = serializers.CharField(max_length=100, trim_whitespace=True)
+
+    def validate_new_password(self, value):
+        """
+        Validate using django's default password
+        :param value:
+        :return:
+        """
+        password = validate_password(value)
+        return password

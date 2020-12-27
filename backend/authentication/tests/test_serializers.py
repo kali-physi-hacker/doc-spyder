@@ -2,7 +2,7 @@ from django.contrib.auth import get_user_model
 
 from rest_framework.test import APITestCase
 
-from authentication.serializers import SignupSerializer
+from authentication.serializers import SignupSerializer, ChangePasswordSerializer
 from authentication.error_messages import EMAIL_ALREADY_EXIST, INSECURE_PASSWORD
 
 
@@ -104,3 +104,30 @@ class TestSignupSerializer(APITestCase):
         serializer = SignupSerializer(data=self.user_data)
         self.assertFalse(serializer.is_valid())
         self.assertEqual(serializer.errors["email"][0], EMAIL_ALREADY_EXIST)
+
+
+class TestChangePasswordSerializer(APITestCase):
+    def setUp(self):
+        self.user = User.objects.create_user(username="test@email.com", password="test")
+        self.user_data = {
+            "old_password": "test",
+            "new_password": "test@123.secure"
+        }
+
+    def test_serializer_is_true_if_valid_user_input_data(self):
+        """
+        Tests that serializer returns true if user request body is valid
+        :return:
+        """
+        serializer = ChangePasswordSerializer(data=self.user_data)
+        self.assertTrue(serializer.is_valid())
+
+    def test_serializer_is_false_if_new_password_does_not_meet_password_validation_requirements(self):
+        """
+        Tests that serializer returns false if user new password is not secure (strong)
+        :return:
+        """
+        self.user_data["new_password"] = "abc"
+        serializer = ChangePasswordSerializer(data=self.user_data)
+        self.assertFalse(serializer.is_valid())
+        self.assertEqual(serializer.errors["new_password"][0], INSECURE_PASSWORD)
