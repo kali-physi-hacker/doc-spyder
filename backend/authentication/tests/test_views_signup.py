@@ -11,11 +11,7 @@ User = get_user_model()
 class TestSignup(APITestCase):
     def setUp(self):
         self.client = APIClient()
-        self.user_data = {
-            "first_name": "Test FN",
-            "email": "test@email.com",
-            "password": "test@a1b2c3iq"
-        }
+        self.user_data = {"first_name": "Test FN", "email": "test@email.com", "password": "test@a1b2c3iq"}
 
     def test_signup_creates_user_and_returns_201_if_valid_user_input_data(self):
         """
@@ -58,7 +54,7 @@ class TestSignup(APITestCase):
         response = self.client.post(reverse("authentication:signup"), data)
         self.assertEqual(response.status_code, 403)
         self.assertFalse(response.json()["success"])
-        self.assertEqual(response.json()["errors"]['first_name'][0], error_messages.FIELD_REQUIRED)
+        self.assertEqual(response.json()["errors"]["first_name"][0], error_messages.FIELD_REQUIRED)
         self.assertIsNone(User.objects.filter(email=self.user_data["email"]).first())
 
         # Test for no email
@@ -67,7 +63,7 @@ class TestSignup(APITestCase):
         response = self.client.post(reverse("authentication:signup"), data)
         self.assertEqual(response.status_code, 403)
         self.assertFalse(response.json()["success"])
-        self.assertEqual(response.json()["errors"]['email'][0], error_messages.FIELD_REQUIRED)
+        self.assertEqual(response.json()["errors"]["email"][0], error_messages.FIELD_REQUIRED)
         self.assertIsNone(User.objects.filter(email=self.user_data["email"]).first())
 
         # Test for no email
@@ -76,7 +72,7 @@ class TestSignup(APITestCase):
         response = self.client.post(reverse("authentication:signup"), data)
         self.assertEqual(response.status_code, 403)
         self.assertFalse(response.json()["success"])
-        self.assertEqual(response.json()["errors"]['password'][0], error_messages.FIELD_REQUIRED)
+        self.assertEqual(response.json()["errors"]["password"][0], error_messages.FIELD_REQUIRED)
         self.assertIsNone(User.objects.filter(email=self.user_data["email"]).first())
 
     def test_signup_returns_403_if_user_email_already_exist(self):

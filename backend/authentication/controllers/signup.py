@@ -13,7 +13,6 @@ User = get_user_model()
 
 
 class Signup(GenericViewSet):
-
     def create(self, request):
         """
         Register user and send email for user account activation
@@ -31,7 +30,9 @@ class Signup(GenericViewSet):
         # Registration successful ==> Send an email including the activation
         account_activation_link = generate_token_link(request, user, "authentication:activate", 60)
 
-        return Response({"success": True, "activation_link": account_activation_link}, status=status.HTTP_201_CREATED)
+        return Response(
+            {"success": True, "activation_link": account_activation_link}, status=status.HTTP_201_CREATED
+        )
 
 
 class ActivateAccount(GenericViewSet):
@@ -47,7 +48,9 @@ class ActivateAccount(GenericViewSet):
         token = decrypt_token(token)["token"]
         user = validate_activation_link_token(uidb64, token)
         if user is None:
-            return Response({"success": False, "error": error_messages.INVALID_TOKEN_LINK}, status=status.HTTP_403_FORBIDDEN)
+            return Response(
+                {"success": False, "error": error_messages.INVALID_TOKEN_LINK}, status=status.HTTP_403_FORBIDDEN
+            )
 
         user.is_active = True
         user.save()

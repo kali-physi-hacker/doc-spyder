@@ -20,10 +20,9 @@ class TestChangePassword(APITestCase):
         :return:
         """
         self.client.force_authenticate(self.user)
-        response = self.client.post(reverse("authentication:change_password"), {
-            "old_password": "test",
-            "new_password": "test@strong.123"
-        })
+        response = self.client.post(
+            reverse("authentication:change_password"), {"old_password": "test", "new_password": "test@strong.123"}
+        )
         self.assertEqual(response.status_code, 201)
         self.assertTrue(response.json()["success"])
         self.assertEqual(response.json()["message"], "Password Changed Successfully")
@@ -38,10 +37,9 @@ class TestChangePassword(APITestCase):
         :return:
         """
         self.client.force_authenticate(self.user)
-        response = self.client.post(reverse("authentication:change_password"), {
-            "old_password": "test",
-            "new_password": "abc"
-        })
+        response = self.client.post(
+            reverse("authentication:change_password"), {"old_password": "test", "new_password": "abc"}
+        )
         self.assertEqual(response.status_code, 401)
         self.assertFalse(response.json()["success"])
         self.assertEqual(response.json()["errors"]["new_password"][0], INSECURE_PASSWORD)
@@ -56,10 +54,10 @@ class TestChangePassword(APITestCase):
         :return:
         """
         self.client.force_authenticate(self.user)
-        response = self.client.post(reverse("authentication:change_password"), {
-            "old_password": "incorrect",
-            "new_password": "test@123.secure"
-        })
+        response = self.client.post(
+            reverse("authentication:change_password"),
+            {"old_password": "incorrect", "new_password": "test@123.secure"},
+        )
         self.assertEqual(response.status_code, 401)
         self.assertFalse(response.json()["success"])
         self.assertEqual(response.json()["error"], INVALID_OLD_PASSWORD)

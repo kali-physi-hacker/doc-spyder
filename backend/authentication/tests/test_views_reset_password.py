@@ -12,9 +12,7 @@ User = get_user_model()
 class TestResetPasswordEmailCheck(APITestCase):
     def setUp(self):
         User.objects.create_user(username="test@email.com", email="test@email.com", password="test@password.secure")
-        self.user_data = {
-            "email": "test@email.com"
-        }
+        self.user_data = {"email": "test@email.com"}
 
         self.client = APIClient()
 
@@ -54,9 +52,7 @@ class TestResetPasswordEmailCheck(APITestCase):
 class TestResetPasswordLinkCheck(APITestCase):
     def setUp(self):
         User.objects.create_user(username="test@email.com", email="test@email.com", password="test@password.secure")
-        self.user_data = {
-            "email": "test@email.com"
-        }
+        self.user_data = {"email": "test@email.com"}
 
         self.client = APIClient()
 
@@ -89,9 +85,7 @@ class TestResetPasswordLinkCheck(APITestCase):
 class ResetPasswordChange(APITestCase):
     def setUp(self):
         User.objects.create_user(username="test@email.com", email="test@email.com", password="test@password.secure")
-        self.user_data = {
-            "email": "test@email.com"
-        }
+        self.user_data = {"email": "test@email.com"}
 
         self.client = APIClient()
 
@@ -101,10 +95,14 @@ class ResetPasswordChange(APITestCase):
         redirection and returns 201
         :return:
         """
-        password_reset_link = self.client.post(reverse("authentication:reset_password_email_check"), self.user_data).json()["password_reset_link"][11:]
+        password_reset_link = self.client.post(
+            reverse("authentication:reset_password_email_check"), self.user_data
+        ).json()["password_reset_link"][11:]
         token = self.client.get(password_reset_link).json()["token"]
         new_password = "test@a1b2c3iq"
-        response = self.client.post(reverse("authentication:reset_password_change", args=(token,)),  {"password": new_password})
+        response = self.client.post(
+            reverse("authentication:reset_password_change", args=(token,)), {"password": new_password}
+        )
         self.assertTrue(response.json()["success"])
         self.assertEqual(response.status_code, 201)
         self.assertEqual(response.json()["message"], PASSWORD_CHANGED_SUCCESS)
@@ -112,8 +110,9 @@ class ResetPasswordChange(APITestCase):
 
     def test_reset_password_change_returns_403_if_invalid_token(self):
         new_password = "test@a1b2c3iq"
-        response = self.client.post(reverse("authentication:reset_password_change", args=("invalidtoken",)),
-                                    {"password": new_password})
+        response = self.client.post(
+            reverse("authentication:reset_password_change", args=("invalidtoken",)), {"password": new_password}
+        )
         self.assertFalse(response.json()["success"])
         self.assertEqual(response.status_code, 403)
         self.assertEqual(response.json()["error"], INVALID_TOKEN_LINK)

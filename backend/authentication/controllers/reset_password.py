@@ -29,7 +29,9 @@ class ResetPasswordEmailCheck(GenericViewSet):
         user = User.objects.get(email=serializer.validated_data["email"])
         password_reset_link = generate_token_link(request, user, "authentication:reset_password_link_check", 20)
 
-        return Response({"success": True, "password_reset_link": password_reset_link})  # Password Reset Link in response data only for testing
+        return Response(
+            {"success": True, "password_reset_link": password_reset_link}
+        )  # Password Reset Link in response data only for testing
 
 
 class ResetPassword(GenericViewSet):

@@ -2,7 +2,12 @@ from django.contrib.auth import get_user_model
 
 from rest_framework.test import APITestCase
 
-from authentication.serializers import SignupSerializer, ChangePasswordSerializer, ResetPasswordCheckSerializer, ResetPasswordChangeSerializer
+from authentication.serializers import (
+    SignupSerializer,
+    ChangePasswordSerializer,
+    ResetPasswordCheckSerializer,
+    ResetPasswordChangeSerializer,
+)
 from authentication.error_messages import EMAIL_ALREADY_EXIST, INSECURE_PASSWORD, EMAIL_DOES_NOT_EXIST, INVALID_EMAIL
 
 
@@ -109,10 +114,7 @@ class TestSignupSerializer(APITestCase):
 class TestChangePasswordSerializer(APITestCase):
     def setUp(self):
         self.user = User.objects.create_user(username="test@email.com", password="test")
-        self.user_data = {
-            "old_password": "test",
-            "new_password": "test@123.secure"
-        }
+        self.user_data = {"old_password": "test", "new_password": "test@123.secure"}
 
     def test_serializer_is_true_if_valid_user_input_data(self):
         """
@@ -136,9 +138,7 @@ class TestChangePasswordSerializer(APITestCase):
 class TestResetPasswordEmailCheck(APITestCase):
     def setUp(self):
         User.objects.create_user(username="test@email.com", email="test@email.com", password="testpassword@forgot")
-        self.user_data = {
-            "email": "test@email.com"
-        }
+        self.user_data = {"email": "test@email.com"}
 
     def test_serializer_returns_true_if_valid_email_and_email_exist(self):
         """

@@ -29,4 +29,6 @@ class ChangePassword(GenericViewSet):
 
         request.user.set_password(serializer.validated_data["new_password"])
         request.user.save()
-        return Response({"success": True, "message": "Password Changed Successfully"}, status=status.HTTP_201_CREATED)
+        return Response(
+            {"success": True, "message": "Password Changed Successfully"}, status=status.HTTP_201_CREATED
+        )

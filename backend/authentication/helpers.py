@@ -23,7 +23,12 @@ class TokenGenerator(PasswordResetTokenGenerator):
         :param timestamp:
         :return:
         """
-        return six.text_type(user.pk) + six.text_type(timestamp) + six.text_type(user.is_active) + six.text_type(user.last_login)
+        return (
+            six.text_type(user.pk)
+            + six.text_type(timestamp)
+            + six.text_type(user.is_active)
+            + six.text_type(user.last_login)
+        )
 
 
 token_generator = TokenGenerator()
