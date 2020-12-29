@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 
 // Third Party Library Imports Here
 import {Route, Switch} from 'react-router-dom'
@@ -16,7 +16,23 @@ import VideoCall from './pages/VideoCall';
 import SearchDoctor from './pages/SearchDoctor';
 
 
+const calculateInnerDiv = () => {
+    const height = window.innerHeight
+    const headerHeight = document.querySelector(".header").clientHeight
+    const footerHeight = document.querySelector(".footer").clientHeight
+    const setHeight = height - headerHeight
+    return setHeight - footerHeight
+}
+
+
 const App = () => {
+
+    useEffect(()=> {
+        Array.from(document.querySelectorAll(".content")).map(content=> {
+            content.style.minHeight = calculateInnerDiv()
+        })
+    })
+
     return (
         <Layout>
             <Switch>
