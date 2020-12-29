@@ -17,12 +17,13 @@ User = get_user_model()
 class TokenGenerator(PasswordResetTokenGenerator):
     def _make_hash_value(self, user: User, timestamp):
         """
-        Uses user.pk, timestamp and user.is_active to generate a token
+        Uses user.pk, timestamp user.last_login
+         and user.is_active to generate a token
         :param user:
         :param timestamp:
         :return:
         """
-        return six.text_type(user.pk) + six.text_type(timestamp) + six.text_type(user.is_active)
+        return six.text_type(user.pk) + six.text_type(timestamp) + six.text_type(user.is_active) + six.text_type(user.last_login)
 
 
 token_generator = TokenGenerator()

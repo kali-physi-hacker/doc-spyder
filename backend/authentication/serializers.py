@@ -4,7 +4,7 @@ from django.contrib.auth import get_user_model
 
 from rest_framework import serializers
 
-from .error_messages import EMAIL_ALREADY_EXIST, INSECURE_PASSWORD
+from .error_messages import EMAIL_ALREADY_EXIST, INSECURE_PASSWORD, EMAIL_DOES_NOT_EXIST
 
 User = get_user_model()
 
@@ -76,6 +76,12 @@ class SignupSerializer(serializers.Serializer):
 
 
 class ChangePasswordSerializer(serializers.Serializer):
+    def update(self, instance, validated_data):
+        pass
+
+    def create(self, validated_data):
+        pass
+
     old_password = serializers.CharField(max_length=100, trim_whitespace=True)
     new_password = serializers.CharField(max_length=100, trim_whitespace=True)
 
@@ -87,3 +93,42 @@ class ChangePasswordSerializer(serializers.Serializer):
         """
         password = validate_password(value)
         return password
+
+
+class ResetPasswordCheckSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+
+    def update(self, instance, validated_data):
+        pass
+
+    def create(self, validated_data):
+        pass
+
+    def validate_email(self, value):
+        """
+        Checks that email exists
+        :return:
+        """
+        user = User.objects.filter(email=value).first()
+        if user is None:
+            raise ValidationError(EMAIL_DOES_NOT_EXIST)
+        return value
+
+
+class ResetPasswordChangeSerializer(serializers.Serializer):
+    password = serializers.CharField(max_length=100, trim_whitespace=True)
+
+    def validate_password(self, value):
+        """
+        Validate the password against django's default password validators
+        :param value:
+        :return:
+        """
+        password = validate_password(value)
+        return password
+
+    def update(self, instance, validated_data):
+        pass
+
+    def create(self, validated_data):
+        pass

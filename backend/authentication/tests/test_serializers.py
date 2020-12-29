@@ -2,8 +2,8 @@ from django.contrib.auth import get_user_model
 
 from rest_framework.test import APITestCase
 
-from authentication.serializers import SignupSerializer, ChangePasswordSerializer
-from authentication.error_messages import EMAIL_ALREADY_EXIST, INSECURE_PASSWORD
+from authentication.serializers import SignupSerializer, ChangePasswordSerializer, ResetPasswordCheckSerializer, ResetPasswordChangeSerializer
+from authentication.error_messages import EMAIL_ALREADY_EXIST, INSECURE_PASSWORD, EMAIL_DOES_NOT_EXIST, INVALID_EMAIL
 
 
 User = get_user_model()
@@ -131,3 +131,40 @@ class TestChangePasswordSerializer(APITestCase):
         serializer = ChangePasswordSerializer(data=self.user_data)
         self.assertFalse(serializer.is_valid())
         self.assertEqual(serializer.errors["new_password"][0], INSECURE_PASSWORD)
+
+
+class TestResetPasswordEmailCheck(APITestCase):
+    def setUp(self):
+        User.objects.create_user(username="test@email.com", email="test@email.com", password="testpassword@forgot")
+        self.user_data = {
+            "email": "test@email.com"
+        }
+
+    def test_serializer_returns_true_if_valid_email_and_email_exist(self):
+        """
+        Tests that serializer.is_valid() returns False if email exist
+        :return:
+        """
+        serializer = ResetPasswordCheckSerializer(data=self.user_data)
+        self.assertTrue(serializer.is_valid())
+
+    def test_serializer_returns_false_if_invalid_email(self):
+        """
+        Tests that serializer.is_valid() returns False if email does not exist
+        :return:
+        """
+        self.user_data["email"] = "invalid_email"
+        serializer = ResetPasswordCheckSerializer(data=self.user_data)
+        self.assertFalse(serializer.is_valid())
+        self.assertEqual(serializer.errors["email"][0], INVALID_EMAIL)
+
+    def test_serializer_returns_false_if_valid_email_but_email_does_not_exist(self):
+        """
+        Tests that serializer.is_valid() returns False if email is valid but
+        does not exist
+        :return:
+        """
+        self.user_data["email"] = "test@doesnotexist.com"
+        serializer = ResetPasswordCheckSerializer(data=self.user_data)
+        self.assertFalse(serializer.is_valid())
+        self.assertEqual(serializer.errors["email"][0], EMAIL_DOES_NOT_EXIST)
