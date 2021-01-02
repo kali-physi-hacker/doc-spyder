@@ -6,7 +6,7 @@ import Content from "../../components/Content";
 import bgImage from '../../assets/img/login-banner.png';
 
 
-const AnimatedInput = props => {
+export const AnimatedInput = props => {
     const handleFocus = e => {
         e.target.parentNode.classList.add("focused")
     }
@@ -17,14 +17,14 @@ const AnimatedInput = props => {
 
     return (
         <div className="form-group form-focus">
-            <input onBlur={handleBlur} onFocus={handleFocus} type={props.type} className="form-control floating"/>
+            <input value={props.value} onChange={props.onChange} onBlur={handleBlur} onFocus={handleFocus} type={props.type} className="form-control floating"/>
             <label className="focus-label">{props.label}</label>
         </div>
     )
 }
 
 
-const SocialBtn = props => {
+export const SocialBtn = props => {
     return (
         <div className="col-6">
             <Link to="#" className={`btn btn-${props.social} btn-block`}><i
@@ -34,7 +34,7 @@ const SocialBtn = props => {
 }
 
 
-const AuthActionBtn = props => {
+export const AuthActionBtn = props => {
     return (
         <button className="btn btn-primary btn-block btn-lg login-btn"
                 type="submit">{props.action}
@@ -42,7 +42,7 @@ const AuthActionBtn = props => {
     )
 }
 
-const Login = () => {
+const Auth = props => {
     return (
         <Content className="bg-white">
             <div className="container-fluid">
@@ -57,31 +57,10 @@ const Login = () => {
                                 </div>
                                 <div className="col-md-12 col-lg-6 login-right">
                                     <div className="login-header">
-                                        <h3>Login <span>Doccure</span></h3>
-
+                                        <h3>{props.title}</h3>
+                                        <p className="small text-muted">{props.description}</p>
                                     </div>
-                                    <form action="https://dreamguys.co.in/demo/doccure/index.html">
-                                        <AnimatedInput type={"email"} label={"Email"}/>
-                                        <AnimatedInput type={"password"} label={"Password"}/>
-
-                                        <div className="text-right">
-                                            <Link className="forgot-link" to={"/forget-password"}>Forgot Password
-                                                ?</Link>
-                                        </div>
-
-                                        <AuthActionBtn action={"Login"} />
-
-                                        <div className="login-or">
-                                            <span className="or-line"></span>
-                                            <span className="span-or">or</span>
-                                        </div>
-                                        <div className="row form-row social-login">
-                                            <SocialBtn social={"facebook"}/>
-                                            <SocialBtn social={"google"}/>
-                                        </div>
-                                        <div className="text-center dont-have">Don’t have an account? <Link
-                                            to="#">Register</Link></div>
-                                    </form>
+                                    {props.children}
                                 </div>
                             </div>
                         </div>
@@ -95,4 +74,4 @@ const Login = () => {
     );
 }
 
-export default Login;
+export default Auth;

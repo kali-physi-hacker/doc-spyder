@@ -7,9 +7,9 @@ import {Route, Switch} from 'react-router-dom'
 import Layout from "./components/Layout";
 
 import Home from './pages/Home';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import ForgetPassword from './pages/ForgotPassword'
+import Login from './pages/Auth/Login';
+import Register from './pages/Auth/Register';
+import ForgetPassword from './pages/Auth/ForgotPassword'
 import Calendar from './pages/Calendar';
 import VoiceCall from './pages/VoiceCall';
 import VideoCall from './pages/VideoCall';
